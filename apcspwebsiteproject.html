@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rayna's Volleyball World</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f7f9fc;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(135deg,#ff6bb5,#8a5cff);
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+nav{
+    margin-top:20px;
+}
+
+nav button{
+    background:white;
+    color:#8a5cff;
+    border:none;
+    padding:12px 20px;
+    margin:5px;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+nav button:hover{
+    transform:scale(1.08);
+}
+
+.section{
+    display:none;
+    max-width:1000px;
+    margin:30px auto;
+    padding:25px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+.active{
+    display:block;
+}
+
+.card{
+    background:#fafafa;
+    margin:15px 0;
+    padding:20px;
+    border-radius:10px;
+}
+
+button.action{
+    background:#8a5cff;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+button.action:hover{
+    opacity:.9;
+}
+
+.dark-mode{
+    background:#111;
+    color:white;
+}
+
+.dark-mode .section{
+    background:#222;
+}
+
+.dark-mode .card,
+.dark-mode .photo{
+    background:#333;
+}
+
+h2{
+    color:#8a5cff;
+    margin-bottom:15px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.photo{
+    background:#fafafa;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.photo img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+ul{
+    margin-left:20px;
+    margin-top:10px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>🏐 Rayna's Volleyball World</h1>
+
+<p>
+High School Student • Volleyball Player • Programmer • Sneaker Enthusiast
+</p>
+
+<nav>
+<button onclick="showSection('home')">🏠 Home</button>
+<button onclick="showSection('about')">👤 About</button>
+<button onclick="showSection('resume')">📄 Resume</button>
+<button onclick="showSection('projects')">💻 Projects</button>
+<button onclick="showSection('photos')">📸 Photos</button>
+<button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+</nav>
+
+</header>
+
+<!-- HOME -->
+
+<div id="home" class="section active">
+
+<h2>Welcome!</h2>
+
+<p>
+Hi! I'm Rayna. Welcome to my volleyball and coding portfolio website.
+</p>
+
+<div class="card">
+<h3>🏐 Volleyball</h3>
+<p>Varsity volleyball player and former student assistant coach.</p>
+</div>
+
+<div class="card">
+<h3>🎓 Academics</h3>
+<p>Maintaining a 4.0 GPA while taking challenging classes.</p>
+</div>
+
+<div class="card">
+<h3>💻 Coding</h3>
+<p>Learning Python and building projects through CMU CS Academy.</p>
+</div>
+
+<button class="action" onclick="randomFavorite()">
+🎲 Show Random Favorite
+</button>
+
+<p id="favorite" style="margin-top:15px;"></p>
+
+</div>
+
+<!-- ABOUT -->
+
+<div id="about" class="section">
+
+<h2>About Me</h2>
+
+<p>
+I'm Rayna, a high school student who loves volleyball, coding,
+dogs, spicy food, Jordan sneakers, and learning new things.
+</p>
+
+<ul>
+<li>🏐 Volleyball Player</li>
+<li>💻 Coding Enthusiast</li>
+<li>🐶 Dog Lover</li>
+<li>🌶️ Spicy Food Fan</li>
+<li>👟 Jordan Sneaker Enthusiast</li>
+<li>🎓 4.0 GPA Student</li>
+</ul>
+
+<button class="action" onclick="funFact()">
+✨ Fun Fact
+</button>
+
+<p id="fact" style="margin-top:15px;"></p>
+
+</div>
+
+<!-- RESUME -->
+
+<div id="resume" class="section">
+
+<h2>Resume Highlights</h2>
+
+<div class="card">
+<h3>🎓 Education</h3>
+<p>Brooke Charter High School</p>
+<p>AP Computer Science Principles</p>
+<p>AP World History</p>
+<p>4.0 GPA</p>
+</div>
+
+<div class="card">
+<h3>🏆 Awards</h3>
+<p>MVP Award</p>
+<p>Star Student Award</p>
+<p>Honor Roll Student</p>
+</div>
+
+<div class="card">
+<h3>💼 Experience</h3>
+<p>Python Training Experience</p>
+<p>Student Assistant Volleyball Coach</p>
+</div>
+
+<button class="action" onclick="achievement()">
+🏆 View Achievement
+</button>
+
+</div>
+
+<!-- PROJECTS -->
+
+<div id="projects" class="section">
+
+<h2>Projects Portfolio</h2>
+
+<div class="card">
+
+<h3>🎄 Christmas Animation Project</h3>
+
+<p>
+Holiday-themed CMU CS Academy project featuring
+festive graphics and creative programming.
+</p>
+
+<button class="action"
+onclick="window.open('https://academy.cs.cmu.edu/ide#43468971','_blank')">
+View Project
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>🧮 Calculator Project</h3>
+
+<p>
+Calculator application designed to perform
+mathematical operations and solve problems.
+</p>
+
+<button class="action"
+onclick="window.open('https://academy.cs.cmu.edu/ide#41217760','_blank')">
+View Project
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>🌍 World Population Calculator</h3>
+
+<p>
+This project calculates and compares populations
+from different countries around the world using
+programming and mathematical analysis.
+</p>
+
+<button class="action"
+onclick="window.open('https://academy.cs.cmu.edu/ide#42945679','_blank')">
+🌎 Explore Population Project
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>🏐 Volleyball Website</h3>
+
+<p>
+This website serves as a personal portfolio showcasing
+my interests, achievements, projects, and web design skills.
+</p>
+
+</div>
+
+</div>
+
+<!-- PHOTOS -->
+
+<div id="photos" class="section">
+
+<h2>Photo Gallery</h2>
+
+<div class="gallery">
+
+<div class="photo">
+<img src="IMG_5652(2).jpeg" alt="Birthday photo">
+<h3>🎂 Birthday Memory</h3>
+<p>A special childhood birthday memory.</p>
+</div>
+
+<div class="photo">
+<img src="IMG_3261(1).jpeg" alt="Childhood photo with dog">
+<h3>🐶 Me & My Dog</h3>
+<p>A favorite childhood photo.</p>
+</div>
+
+<div class="photo">
+<img src="mydog(1).jpg" alt="Dog running">
+<h3>🎾 My Dog</h3>
+<p>Playing outside with a tennis ball.</p>
+</div>
+
+<div class="photo">
+<h3>🏐 Volleyball</h3>
+<p>Game days, practices, and teamwork.</p>
+</div>
+
+<div class="photo">
+<h3>👟 Jordan Sneakers</h3>
+<p>One of my favorite sneaker collections.</p>
+</div>
+
+<div class="photo">
+<h3>💻 Coding</h3>
+<p>Learning programming and building projects.</p>
+</div>
+
+<div class="photo">
+<h3>☀️ Summer</h3>
+<p>Enjoying sunshine and warm weather.</p>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 Rayna's Volleyball World</p>
+</footer>
+
+<script>
+
+function showSection(sectionId){
+
+let sections=document.querySelectorAll('.section');
+
+sections.forEach(section=>{
+    section.classList.remove('active');
+});
+
+document.getElementById(sectionId)
+.classList.add('active');
+}
+
+function toggleDarkMode(){
+document.body.classList.toggle('dark-mode');
+}
+
+function funFact(){
+
+document.getElementById("fact").innerHTML =
+"🏐 I balance volleyball, coding, AP classes, leadership activities, and a 4.0 GPA!";
+}
+
+function achievement(){
+
+alert(
+"🏆 MVP Award Winner\n⭐ Star Student\n📚 Honor Roll Student\n🎓 4.0 GPA"
+);
+
+}
+
+function randomFavorite(){
+
+let favorites=[
+"🏐 Volleyball",
+"👟 Jordan Sneakers",
+"💻 Coding",
+"🐶 Dogs",
+"🌶️ Spicy Food",
+"☀️ Summer"
+];
+
+let choice =
+favorites[Math.floor(Math.random()*favorites.length)];
+
+document.getElementById("favorite").innerHTML =
+"My random favorite is: " + choice;
+}
+
+</script>
+
+</body>
+</html>
